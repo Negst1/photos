@@ -2,8 +2,8 @@
 .container {
     margin: 0 auto;
     width: 100%;
-    max-width: 1358px; /* Максимальная ширина контейнера */
-    padding: 0 16px; /* Отступы по бокам */
+    max-width: 1358px; 
+    padding: 0 16px; 
 }
 
 /* Галерея фотографий с использованием Grid */
@@ -11,7 +11,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 32px;
-    justify-items: center; /* Центрируем элементы внутри колонок */
+    justify-items: center; 
 }
 
 /* Стиль для изображений */
@@ -38,24 +38,24 @@
 /* Медиазапрос для экранов до 768px (планшеты) */
 @media (max-width: 768px) {
     .photo-gallery {
-        grid-template-columns: 1fr; /* 1 колонка на мобильных устройствах */
+        grid-template-columns: 1fr;
         gap: 16px;
     }
 
     .photo-image {
-        width: 400px; /* Изображения будут занимать 100% ширины */
-        height: 200px; /* Высота меняется пропорционально ширине */
+        width: 400px;
+        height: 200px; 
     }
 }
 
 /* Медиазапрос для экранов до 480px (мобильные устройства) */
 @media (max-width: 480px) {
     .photo-gallery {
-        gap: 12px; /* Меньше отступов на мобильных */
+        gap: 12px; 
     }
 
     .photo-image {
-        width: 100%; /* Полная ширина контейнера */
-        height: 180px; /* Меньшая высота для мобильных */
+        width: 100%; 
+        height: 180px; 
     }
 }
