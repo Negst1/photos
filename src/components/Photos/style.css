@@ -9,7 +9,7 @@
 /* Галерея фотографий с использованием Grid */
 .photo-gallery {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 колонки на большом экране */
+    grid-template-columns: repeat(3, 1fr); 
     gap: 32px;
     justify-items: center; /* Центрируем элементы внутри колонок */
 }
@@ -18,19 +18,19 @@
 .photo-image {
     object-fit: cover;
     border-radius: 8px;
-    width: 430px; /* Фиксированная ширина */
-    height: 216px; /* Фиксированная высота */
+    width: 430px;
+    height: 216px; 
 }
 
 /* Медиазапрос для экранов до 1200px */
 @media (max-width: 1200px) {
     .photo-gallery {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки на экранах средней ширины */
+        grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
 
     .photo-image {
-        width: 350px; /* Изменяем размер изображений на экранах до 1200px */
+        width: 350px; 
         height: 200px;
     }
 }

@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 // Получение списка фотографий
 export const getPhotos = async () => {
     const response = await axios.get("http://test-backend.itdelta.agency/api/images");
@@ -27,10 +28,9 @@ export const addComment = async (imageId, newComment) => {
         // Логируем успешный ответ от сервера
         console.log('Response from server:', response.data);
         
-        // Сервер возвращает пустой ответ с кодом 204, комментарий не сохраняется
-        return response.data; // Если сервер возвращает что-то, это будет обработано
+        return response.data; 
     } catch (error) {
         console.error('Error adding comment:', error);
-        throw error; // Пробрасываем ошибку дальше, если нужно
+        throw error; 
     }
 };
