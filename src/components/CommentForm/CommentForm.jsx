@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const CommentForm = ({ onSubmit }) => {
     const [commentText, setCommentText] = useState("");
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (commentText.trim() !== "") {

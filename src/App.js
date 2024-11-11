@@ -5,7 +5,8 @@ import PhotoGallery from './components/Photos/PhotoGallery';
 function App() {
   return (
     <div className="App">
-      <Header></Header>
+      
+
       <PhotoGallery></PhotoGallery>
 
     </div>

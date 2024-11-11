@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getPhotos } from "./../../helpers/api";
 import Modal from "./../Modal/Modal";
+import Header from "../Header/Header"; // Импортируем Header
 import "./style.css";
 
 const PhotoGallery = () => {
     const [photos, setPhotos] = useState([]);
     const [selectedImageId, setSelectedImageId] = useState(null);
+    const [userName, setUserName] = useState("Ricardo Cooper"); // Состояние для имени пользователя
 
     useEffect(() => {
         const fetchPhotos = async () => {
@@ -26,6 +28,7 @@ const PhotoGallery = () => {
 
     return (
         <main className="main-area">
+            <Header name={userName} /> {/* Передаем имя в Header */}
             <div className="container">
                 <div className="photo-gallery">
                     {photos.map((photo) => (
@@ -36,7 +39,13 @@ const PhotoGallery = () => {
                     ))}
                 </div>
             </div>
-            {selectedImageId && <Modal imageId={selectedImageId} onClose={closeModal} />}
+            {selectedImageId && (
+                <Modal 
+                    imageId={selectedImageId} 
+                    onClose={closeModal} 
+                    userName={userName} // Передаем имя в Modal
+                />
+            )}
         </main>
     );
 };

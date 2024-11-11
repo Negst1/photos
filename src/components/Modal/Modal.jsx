@@ -3,17 +3,21 @@ import { getImageDetails, addComment } from "../../helpers/api";
 import CommentForm from "../CommentForm/CommentForm";
 import "./style.css";
 
-const Modal = ({ imageId, onClose }) => {
+const Modal = ({ imageId, onClose, userName }) => {
     const [image, setImage] = useState(null);
     const [comments, setComments] = useState([]);
 
     // Загрузка данных изображения и комментариев
     useEffect(() => {
         const fetchImageDetails = async () => {
-            const data = await getImageDetails(imageId);
-            setImage(data.imageUrl);
-            setComments(data.comments);
-            console.log(data.comments);
+            try {
+                const data = await getImageDetails(imageId);
+                console.log("Fetched Image Data:", data); // Логируем, что приходит с сервера
+                setImage(data.largeImage); // Используем largeImage для модального окна
+                setComments(data.comments); // Комментарии
+            } catch (error) {
+                console.error("Error fetching image details:", error);
+            }
         };
 
         if (imageId) {
@@ -24,13 +28,10 @@ const Modal = ({ imageId, onClose }) => {
     // Добавление комментария
     const handleAddComment = async (newCommentText) => {
         try {
-            
             await addComment(imageId, newCommentText);
-
-            
             setComments((prev) => [
                 ...prev,
-                { author: "Михаил", text: newCommentText },
+                { author: userName, text: newCommentText }, // Добавляем новый комментарий с именем пользователя
             ]);
         } catch (error) {
             console.error('Error adding comment:', error);
@@ -43,7 +44,13 @@ const Modal = ({ imageId, onClose }) => {
                 <span className="close-btn" onClick={onClose}>
                     &times;
                 </span>
-                {image && <img src={image} alt="Большое изображение" className="modal-image" />}
+                {image && (
+                    <img 
+                        src={image} 
+                        alt="Большое изображение" 
+                        className="modal-image" 
+                    />
+                )}
                 <div className="comments-section">
                     <h3>Комментарии</h3>
                     <ul>
