@@ -12,9 +12,9 @@ const Modal = ({ imageId, onClose, userName }) => {
         const fetchImageDetails = async () => {
             try {
                 const data = await getImageDetails(imageId);
-                console.log("Fetched Image Data:", data); // Логируем, что приходит с сервера
-                setImage(data.largeImage); // Используем largeImage для модального окна
-                setComments(data.comments); // Комментарии
+                console.log("Fetched Image Data:", data); 
+                setImage(data.largeImage); 
+                setComments(data.comments); 
             } catch (error) {
                 console.error("Error fetching image details:", error);
             }

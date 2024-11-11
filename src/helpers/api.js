@@ -7,7 +7,7 @@ export const getPhotos = async () => {
     return response.data;
 };
 
-// Получение информации об изображении и комментариях
+// Получение информации об изображении и комментария
 export const getImageDetails = async (imageId) => {
     const response = await axios.get(`http://test-backend.itdelta.agency/api/image/${imageId}`);
     return response.data;
@@ -19,13 +19,12 @@ export const addComment = async (imageId, newComment) => {
         // Формируем данные для отправки в нужном формате
         const commentData = { comment: newComment };
 
-        // Отправляем запрос на сервер для добавления комментария
         const response = await axios.post(
             `http://test-backend.itdelta.agency/api/image/${imageId}/comments`,
             commentData
         );
 
-        // Логируем успешный ответ от сервера
+        
         console.log('Response from server:', response.data);
         
         return response.data; 
