@@ -35,12 +35,12 @@
 }
 
 .modal-image {
-  width: 100%;        /* Задаем ширину изображения, чтобы оно масштабировалось */
-  max-width: 600px;   /* Максимальная ширина изображения */
-  height: auto;       /* Высота автоматически подстраивается */
-  object-fit: contain; /* Сохраняем пропорции изображения */
-  margin: 0 auto;     /* Выравнивание изображения по центру */
-  display: block;     /* Убедитесь, что изображение блочное */
+  width: 100%;       
+  max-width: 600px;  
+  height: auto;       
+  object-fit: contain; 
+  margin: 0 auto;    
+  display: block;     
 }
 
 .comments-section {
@@ -56,7 +56,5 @@
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
-.modal-image {
-  border: 2px solid red; /* Добавьте рамку для визуализации */
-}
+
 
